@@ -18,19 +18,21 @@ import Card from "./Card";
   const [currCardIdx, setCurrCardIdx] = useState(0);
   const changePhoto = (direction) =>{
     let newIdx;
-    
-    
-    
+    let lastPhotoIndex = photos.length - 1;
+    //reduces index to change to photo on the left
+    //if photo is already the last photo on the left, it will return the base index of 0
     if(direction === 'left'){
       newIdx = currCardIdx - 1;
       if(currCardIdx === 0){
         return 0;
       }
   }
+    //increases index to change to photo on the right
+    //if photo is already the last photo on the right, it will return the base index of last photo index
     if(direction === 'right'){
       newIdx = currCardIdx + 1;
-      if(currCardIdx===2){
-      return 2;
+      if(currCardIdx===lastPhotoIndex){
+      return lastPhotoIndex;
       }
     }
     
